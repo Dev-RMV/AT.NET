@@ -1,0 +1,36 @@
+﻿@model TP3.NET.MVC.Models.Disciplina
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Disciplina</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Horas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Horas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Professor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Professor.ProfessorId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.DisciplinaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
