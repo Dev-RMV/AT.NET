@@ -12,8 +12,8 @@ namespace TP3.NET.MVC.Models
 
         public int AlunoId { get; set; }
         public string Nome { get; set; } = null!;
-        public DateTime? DataNascimento { get; set; }
-        public string? Email { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string Email { get; set; }
 
         public virtual ICollection<Curso> Cursos { get; set; }
     }

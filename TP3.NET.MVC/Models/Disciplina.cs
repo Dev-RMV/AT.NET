@@ -12,8 +12,8 @@ namespace TP3.NET.MVC.Models
 
         public int DisciplinaId { get; set; }
         public string Nome { get; set; } = null!;
-        public int? Horas { get; set; }
-        public int? ProfessorId { get; set; }
+        public int Horas { get; set; }
+        public int ProfessorId { get; set; }
 
         public virtual Professor? Professor { get; set; }
         public virtual ICollection<Curso> Cursos { get; set; }
