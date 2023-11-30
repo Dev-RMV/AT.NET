@@ -60,6 +60,7 @@ namespace TP3.NET.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                aluno.DataCriacao=DateTime.Now;
                 _context.Add(aluno);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -88,7 +89,7 @@ namespace TP3.NET.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AlunoId,Nome,DataNascimento,Email")] Aluno aluno)
+        public async Task<IActionResult> Edit(int id, [Bind("AlunoId,Nome,DataNascimento,Email,DataCriacao")] Aluno aluno)
         {
             if (id != aluno.AlunoId)
             {
@@ -98,7 +99,7 @@ namespace TP3.NET.MVC.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
+                { 
                     _context.Update(aluno);
                     await _context.SaveChangesAsync();
                 }

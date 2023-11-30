@@ -108,6 +108,22 @@ namespace TP3.NET.MVC.Data
                 entity.Property(e => e.Nome).HasMaxLength(255);
             });
 
+            modelBuilder.Entity<Aluno>().HasData(
+        new Aluno { AlunoId = 1, Nome = "Rodrigo Vianna", DataNascimento = new DateTime(1979, 1, 1), Email = "teste@teste.com", DataCriacao = DateTime.Now }
+    );
+
+            modelBuilder.Entity<Curso>().HasData(
+                new Curso { CursoId = 1, AlunoId = 1, DataInicio = new DateTime(2022, 1, 1), DataFim = new DateTime(2022, 12, 31), Nome = ".NET", DisciplinaId = 1 }
+            );
+
+            modelBuilder.Entity<Disciplina>().HasData(
+                new Disciplina { DisciplinaId = 1, Nome = "Fundamentos de C#", ProfessorId = 1 }
+            );
+
+            modelBuilder.Entity<Professor>().HasData(
+                new Professor { ProfessorId = 1, Nome = "Fulano", DataContratacao = new DateTime(2000, 1, 1), Email = "fulano@fulanizando.com" }
+            );
+
             OnModelCreatingPartial(modelBuilder);
         }
 
