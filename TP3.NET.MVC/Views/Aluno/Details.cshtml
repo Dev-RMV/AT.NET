@@ -10,6 +10,12 @@
     <h4>Aluno</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ImgFile)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content("~/imagem/" + Model.ImgFile)" style="height:30px", width="30px" />
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>

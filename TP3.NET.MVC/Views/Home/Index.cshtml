@@ -13,8 +13,25 @@
     <ol class="text-lg-start">
         <li>Listem por data de inserção de dados, do mais atual para o mais antigo;</li>
         <li>Retornem o total de produtos cadastrados.</li>
-
     </ol>
+    <div style="background-color:greenyellow">
+        <h3>CONSULTAS SQL</h3>
+        <p>
+            SELECT * FROM [dbo].[Aluno]
+            ORDER BY [DataCriacao] DESC;
+        </p>
+        <p>SELECT COUNT(*) FROM [dbo].[Aluno];</p>
+    </div>
+    <div style="background-color:yellow">
+        <h3>OUTRAS OBSERVAÇÕES</h3>
+        <p>Primeira e mais importante: Procurei ser bastante pragmático na resolução deste AT, fazendo somente o que é necessário.</p>
+        <p>A inserção de imagens está na CRIAÇÃO dos ALUNOS somente.</p>
+        <p>O RODAPÉ muda dinamicamente (o nome do controller) de acordo com o controller atual, USANDO SECTION</p>
+        <p>A DATA DE CRIAÇÃO dos ALUNOS (somente) foi inserida posteriormente com uma MIGRATION</p>
+        <p>Foi feita a migration de DATA SEEDING, mas ela não coloca IMAGENS (adicionado posteriormente)</p>
+        <p>A aplicação é um "remake" do TP3 MVC, possuindo 4 tabelas: ALUNO, CURSO, DISCIPLINA e PROFESSOR. Eu mexi na classe ALUNO para atender às rúbricas, e fiz outras alterações que foram demandadas.</p>
+
+    </div>
 
 
 </div>

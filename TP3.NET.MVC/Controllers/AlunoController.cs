@@ -13,10 +13,12 @@ namespace TP3.NET.MVC.Controllers
     public class AlunoController : Controller
     {
         private readonly MasterContext _context;
+        private string caminhoservidor;
 
-        public AlunoController(MasterContext context)
+        public AlunoController(MasterContext context, IWebHostEnvironment sistema)
         {
             _context = context;
+            caminhoservidor = sistema.WebRootPath;
         }
 
         // GET: Aluno
@@ -56,11 +58,24 @@ namespace TP3.NET.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AlunoId,Nome,DataNascimento,Email")] Aluno aluno)
+        public async Task<IActionResult> Create([Bind("AlunoId,ImgFile,Nome,DataNascimento,Email,FormFile")] Aluno aluno)
         {
+            string caminhoParaSalvarImagem = caminhoservidor + "\\imagem\\";
+            string novoNomeDaImagem = Guid.NewGuid().ToString() + "_" + aluno.FormFile.FileName;
+            if (!Directory.Exists(caminhoParaSalvarImagem))
+            {
+                Directory.CreateDirectory(caminhoParaSalvarImagem);
+            }
+            aluno.ImgFile = novoNomeDaImagem;
+                        
             if (ModelState.IsValid)
             {
-                aluno.DataCriacao=DateTime.Now;
+                using (var stream = System.IO.File.Create(caminhoParaSalvarImagem + novoNomeDaImagem))
+                {
+                    aluno.FormFile.CopyToAsync(stream);
+                }
+                aluno.ImgFile = novoNomeDaImagem;
+                aluno.DataCriacao=DateTime.Now;                
                 _context.Add(aluno);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

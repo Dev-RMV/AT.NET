@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TP3.NET.MVC.Data;
 
@@ -11,9 +12,10 @@ using TP3.NET.MVC.Data;
 namespace TP3.NET.MVC.Migrations
 {
     [DbContext(typeof(MasterContext))]
-    partial class MasterContextModelSnapshot : ModelSnapshot
+    [Migration("20231215185100_InserindoImagem")]
+    partial class InserindoImagem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,10 +44,6 @@ namespace TP3.NET.MVC.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("ImgFile")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -62,10 +60,9 @@ namespace TP3.NET.MVC.Migrations
                         new
                         {
                             AlunoId = 1,
-                            DataCriacao = new DateTime(2023, 12, 15, 19, 6, 59, 669, DateTimeKind.Local).AddTicks(2928),
+                            DataCriacao = new DateTime(2023, 12, 15, 15, 51, 0, 759, DateTimeKind.Local).AddTicks(117),
                             DataNascimento = new DateTime(1979, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "teste@teste.com",
-                            ImgFile = "testeImg",
                             Nome = "Rodrigo Vianna"
                         });
                 });

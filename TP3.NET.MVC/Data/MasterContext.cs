@@ -109,7 +109,7 @@ namespace TP3.NET.MVC.Data
             });
 
             modelBuilder.Entity<Aluno>().HasData(
-        new Aluno { AlunoId = 1, Nome = "Rodrigo Vianna", DataNascimento = new DateTime(1979, 1, 1), Email = "teste@teste.com", DataCriacao = DateTime.Now }
+        new Aluno { AlunoId = 1,ImgFile="testeImg", Nome = "Rodrigo Vianna", DataNascimento = new DateTime(1979, 1, 1), Email = "teste@teste.com", DataCriacao = DateTime.Now }
     );
 
             modelBuilder.Entity<Curso>().HasData(
