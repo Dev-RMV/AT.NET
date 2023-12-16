@@ -104,13 +104,13 @@ namespace TP3.NET.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AlunoId,Nome,DataNascimento,Email,DataCriacao")] Aluno aluno)
+        public async Task<IActionResult> Edit(int id, [Bind("AlunoId,ImgFile,Nome,DataNascimento,Email,FormFile,DataCriacao")] Aluno aluno)
         {
             if (id != aluno.AlunoId)
             {
                 return NotFound();
             }
-
+            
             if (ModelState.IsValid)
             {
                 try

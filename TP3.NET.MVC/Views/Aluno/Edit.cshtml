@@ -34,6 +34,21 @@
                 <span asp-validation-for="DataCriacao" class="text-danger" hidden></span>
             </div>
             <div class="form-group">
+                <label asp-for="ImgFile" class="control-label" hidden></label>
+                <input asp-for="ImgFile" class="form-control" hidden />
+                <span asp-validation-for="ImgFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FormFile" class="control-label" hidden></label>
+                <input asp-for="FormFile" class="form-control" hidden />
+                <span asp-validation-for="FormFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCriacao" class="control-label" hidden></label>
+                <input asp-for="DataCriacao" class="form-control" hidden />
+                <span asp-validation-for="DataCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

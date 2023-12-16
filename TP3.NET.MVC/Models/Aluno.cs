@@ -14,7 +14,7 @@ namespace TP3.NET.MVC.Models
         [Required]
         public int AlunoId { get; set; }
         
-        public string ImgFile { get; set; }
+        public string? ImgFile { get; set; }
         [Required]
         public string Nome { get; set; } = null!;
         [Required]
@@ -23,7 +23,7 @@ namespace TP3.NET.MVC.Models
         public string Email { get; set; }
         public DateTime DataCriacao {get; set; }
         [NotMapped]
-        public IFormFile FormFile { get; set; }
+        public IFormFile? FormFile { get; set; }
 
         public virtual ICollection<Curso> Cursos { get; set; }
     }
