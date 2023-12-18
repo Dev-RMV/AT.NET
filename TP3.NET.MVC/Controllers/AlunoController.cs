@@ -61,20 +61,25 @@ namespace TP3.NET.MVC.Controllers
         public async Task<IActionResult> Create([Bind("AlunoId,ImgFile,Nome,DataNascimento,Email,FormFile")] Aluno aluno)
         {
             string caminhoParaSalvarImagem = caminhoservidor + "\\imagem\\";
-            string novoNomeDaImagem = Guid.NewGuid().ToString() + "_" + aluno.FormFile.FileName;
-            if (!Directory.Exists(caminhoParaSalvarImagem))
+            string novoNomeDaImagem;
+            if (!(aluno.FormFile == null))
             {
-                Directory.CreateDirectory(caminhoParaSalvarImagem);
-            }
-            aluno.ImgFile = novoNomeDaImagem;
-                        
-            if (ModelState.IsValid)
-            {
+                novoNomeDaImagem = Guid.NewGuid().ToString() + "_" + aluno.FormFile.FileName;
+                aluno.ImgFile = novoNomeDaImagem;
                 using (var stream = System.IO.File.Create(caminhoParaSalvarImagem + novoNomeDaImagem))
                 {
                     aluno.FormFile.CopyToAsync(stream);
                 }
-                aluno.ImgFile = novoNomeDaImagem;
+            }
+            if (!Directory.Exists(caminhoParaSalvarImagem))
+            {
+                Directory.CreateDirectory(caminhoParaSalvarImagem);
+            }
+            
+                        
+            if (ModelState.IsValid)
+            {           
+                
                 aluno.DataCriacao=DateTime.Now;                
                 _context.Add(aluno);
                 await _context.SaveChangesAsync();

@@ -28,9 +28,9 @@ namespace TP3.NET.MVC.Data
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 //local
-                //optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Master;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Master;Trusted_Connection=True;");
                 //azure
-                optionsBuilder.UseSqlServer("Server=tcp:rmv.database.windows.net,1433;Initial Catalog=rmv;Persist Security Info=False;User ID=rmv123;Password=Admin123*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                //optionsBuilder.UseSqlServer("Server=tcp:rmv.database.windows.net,1433;Initial Catalog=rmv;Persist Security Info=False;User ID=rmv123;Password=Admin123*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
